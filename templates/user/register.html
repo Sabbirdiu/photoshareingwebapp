@@ -1,10 +1,12 @@
-
-<div class="content-section">
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap %}
+<div class="content-section container">
   <form method="POST">
     {% csrf_token %}
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">Join Today</legend>
-      {{ form }}
+      {{ form|bootstrap }}
     </fieldset>
     <div class="form-group">
       <button class="btn btn-outline-info" type="submit">Sign Up</button>
@@ -17,3 +19,4 @@
     </small>
   </div>
 </div>
+{% endblock %}

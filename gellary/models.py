@@ -6,12 +6,10 @@ from django.urls import reverse
 
 
 class ImageAlbum(models.Model):
-    title = models.CharField(max_length=100)
     
-    date_posted = models.DateTimeField(default = timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    cover_image = models.ImageField()
-      
+    title = models.CharField(max_length=100)
+    cover_image = models.ImageField()    
     image = models.ImageField(upload_to='photos/%Y/%m/%d/')
     image2 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     image3 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
@@ -22,9 +20,8 @@ class ImageAlbum(models.Model):
     image8 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     image9 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     image10 =  models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-
-    is_public = models.BooleanField(default=True)
-    
+    is_public = models.BooleanField(default=True)  
+    date_posted = models.DateTimeField(default = timezone.now)
     
     def __str__(self):
         return self.title

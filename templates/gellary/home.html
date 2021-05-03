@@ -3,7 +3,8 @@
 
 <style>
     a{
-        text-decoration: none
+        text-decoration: none;
+        color: black;
     }
 </style>
 <div class="content-section container mt-5">
@@ -14,17 +15,18 @@
           <div class="card h-100">
             <div class="card-body">
                 
-                <a class="mr-2 card-title" href="{% url 'user-posts' posts.author.username %}">{{ posts.author }}</a>
+                <a class="mr-2 card-title" href="{% url 'user-posts' posts.author.username %}">Album by {{ posts.author }}</a>
               </div>
               <a href="{% url 'post-detail' posts.id %}">
             <img style="height: 500px;width: 635px;" src="{{posts.cover_image.url}}" class="card-img-top" alt="..."></a>
             <div class="card-body">
-              <h5 class="card-title">{{posts.title}}</h5>
+              <a href="{% url 'post-detail' posts.id %}"><h5 class="card-title">{{posts.title}}</h5></a>
+              
             
             </div>
            
             <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <small class="text-muted">{{ posts.date_posted|date:"F d, Y" }}</small>
             </div>
           </div>
         </div>

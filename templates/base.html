@@ -30,10 +30,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="">Blog</a>
-             
-            </div>
+          
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if user.is_authenticated %}
@@ -42,7 +39,7 @@
               >
              
               <a class="nav-item nav-link" href="{% url 'gellary' %}"
-                >Dashboard</a
+                >My Gellary</a
               >
               <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
   

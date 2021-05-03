@@ -45,15 +45,16 @@ class UserAlbumListView(ListView):
 # class Gellary(ListView):
 #     model = ImageAlbum
 #     template_name = 'gellary/gellary.html'  
-#     context_object_name = 'posts'
+#     context_object_name = 'gellary'
 #     paginate_by = 5
 
 #     def get_queryset(self):
 #         user = get_object_or_404(User, username=self.kwargs.get('username'))
 #         return ImageAlbum.objects.filter(author=user).order_by('-date_posted')
 def gellary(request):
+    current_user = request.user
 
-    gellary = ImageAlbum.objects.filter().order_by('-date_posted')
+    gellary = ImageAlbum.objects.filter(author=current_user).order_by('-date_posted')
     context = {
         'gellary':gellary
     }

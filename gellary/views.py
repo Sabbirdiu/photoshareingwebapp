@@ -27,7 +27,7 @@ class PostCreateView(LoginRequiredMixin,CreateView):
 #     paginate_by = 2
 def home(request):
     context = {
-        'posts':ImageAlbum.objects.filter(is_public=True)
+        'posts':ImageAlbum.objects.filter(is_public=True).order_by('-date_posted')
     }
     return render(request,'gellary/home.html',context)
 class PostDetailView(DetailView):
